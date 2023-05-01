@@ -1,0 +1,66 @@
+\begin{appendices}
+	\section{材料结构}
+	\begin{table}[!htbp]
+		\centering
+		\resizebox{\textwidth}{!}{
+			\begin{tabular}{cc}
+				\toprule[1.5pt]
+				\makebox[0.4\textwidth]{文件夹名} & \makebox[0.5\textwidth]{备注} \\
+				\midrule
+				源代码 & 附件及程序生成的数据 \\
+				spsspro分析结果 & 通过SPSSPRO软件生成的分析结果 \\				
+				\bottomrule[1.5pt]
+			\end{tabular}
+		}
+	\end{table}
+	
+	\section{Python 源代码}
+	\begin{lstlisting}[language=python]
+		import pandas as pd
+		import warnings
+		warnings.filterwarnings('ignore')
+		
+		import os
+		
+		data=pd.read_excel('附件.xlsx',sheet_name='表单1')
+		data.head()
+		
+		data.columns
+		
+		data.describe()
+		
+		data.isnull().sum()
+		
+		data.dropna().to_csv('Q1-1.csv',index=None,encoding='ANSI')
+		
+		data2=pd.read_excel('附件.xlsx',sheet_name='表单2')
+		
+		data2.head()
+		
+		data2['文物编号']=data2['文物采样点'].apply(lambda x:int(str(x)[:2]))
+		data['颜色'].fillna(data['颜色'].mode()[0],inplace=True)
+		data2.isnull().sum()
+		
+		data2.fillna(0,inplace=True)
+		data2.isnull().sum()
+		# 合并表格
+		data_merged=pd.merge(data,data2,on=['文物编号'])
+		data_merged.head()
+		
+		data_merged.to_csv('Q1-2.csv',index=None,encoding='ANSI')
+		data_merged.columns
+		
+		data_merged['成分总和']=0
+		for i in ['二氧化硅(SiO2)', '氧化钠(Na2O)',
+		'氧化钾(K2O)', '氧化钙(CaO)', '氧化镁(MgO)', '氧化铝(Al2O3)', '氧化铁(Fe2O3)',
+		'氧化铜(CuO)', '氧化铅(PbO)', '氧化钡(BaO)', '五氧化二磷(P2O5)', '氧化锶(SrO)',
+		'氧化锡(SnO2)', '二氧化硫(SO2)']:
+		data_merged['成分总和']+=data_merged[i]
+		
+		data_merged[(data_merged['成分总和']>85)&data_merged['成分总和']<105]
+		
+		data_merged.reset_index(inplace=True,drop=True)
+		data_merged.head()
+		
+	\end{lstlisting}
+\end{appendices}

@@ -1,0 +1,25 @@
+\section{模型评价与推广}
+\subsection{Spearman相关性系数分析}
+优点:
+\begin{enumerate}
+	\item 既可以使用线性相关系数又适用于非线性相关系数
+	\item 在变量值没有变化的情况下，也不会出现像皮尔森系数那样分母为0而无法计算的情况。另外，即使出现异常值，由于异常值的秩次通常不会有明显的变化
+	\item 可以测量两个定序数据
+\end{enumerate}
+
+\subsection{逻辑回归}
+优点：
+\begin{enumerate}
+	\item 模型训练速度快，计算量仅仅只和特征的数目相关
+	\item 模型易于理解，解释性好，从特征的权重可以看到不同的特征对最后结果的影响
+	\item 适用于二分类问题，特征不需要缩放
+	\item 内存占用资源小
+\end{enumerate}
+
+缺点：
+\begin{enumerate}
+	\item 数据不平衡时 不能得到处理
+	\item 准确率较低，形式简单以至难以去拟合数据的真实分布
+	\item 逻辑回归无法筛选其特征，gbdt后才可以逻辑回归
+	\item 对多重共线性数据过为敏感		
+\end{enumerate}

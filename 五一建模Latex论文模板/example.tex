@@ -1,0 +1,79 @@
+% !Mode:: "TeX:UTF-8"
+%!TEX program  = xelatex
+
+%\documentclass{cumcmthesis}
+\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
+\usepackage{array}
+\usepackage{url}
+\usepackage{appendix}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+%\pagestyle{fancy}
+%\fancyhf{}
+\usepackage{pdfpages}
+\cfoot{\thepage}
+
+\usepackage{listings}
+
+\lstset{
+	keywordstyle=\color[RGB]{255,99,71},
+	morekeywords={agent}, 
+	frame=shadowbox,
+	xleftmargin=4em,
+	xrightmargin=4em,
+	captionpos=b,
+	breaklines=true,
+	basicstyle=\small,
+}
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%五一建模终稿请注释该部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\begin{center}
+%		\heiti\zihao{3}\textbf{古代玻璃制品的成分分析与鉴别}
+%	\end{center}
+%%摘要--------------------------------------------------------------	
+%	\pagenumbering{arabic}
+%	\setcounter{page}{1}	
+%	
+%	\begin{abstract}
+%		\begin{center}
+%			{\heiti\zihao{3}\textbf{摘\quad 要}}
+%		\end{center}
+%	
+%		丝绸之路是古代中西方文化交流的通道，其中玻璃是早期贸易往来的宝贵物证。新疆地区是陆上丝绸之路的主要通行区域之一，由于独特的地理优势，可能更早地受到外来玻璃制造技术的影响，更早地输入外来玻璃制品。
+%		
+%		本文针对古代玻璃制品的成分进行分析和鉴别，通过百度百科可以得知，玻璃中包含的最主要的原材料是石英砂，主要化学成分是二氧化硅（SiO2）。因为在煅烧的过程，材料存在着各种各样的问题，因此需要加入助熔剂来辅助煅烧。不同的助熔剂，其中包含的化学成分也不径相同。又因为古代玻璃极易受埋藏环境的影响而风化，玻璃风化的程度对于玻璃的判别产生了影响。本文主要提供了铅钡玻璃和高钾玻璃。通过对附件中的化学成分进行数据处理与数据分析，建立相关性分析，得到各个特征之间与是否风化的相关系数。通过建立机器学习分类预测模型，对风化前的化学成分进行预测。
+%		
+%		\textbf{针对问题一}：首先对问题一进行分解，可以分成三小问。第一小问中，由于表单一给出的数据不满足正态分布特性，所以采用Spearman相关系数\textsuperscript{\cite{b4}}对表面风化与其玻璃类型、纹饰、颜色之间的关系进行分析。第二小问中，通过计算样本数据的均值、计数、中位数、标准差、最大值、最小值和求和共七个统计量进行分类汇总，通过数据可视化，分析文物样品表面有无风化化学成分含量的统计规律。第三小问中，首先需要进行数据处理，将表单二中的缺失值用0填补，然后通过F检验，求出其化学成分比例公式，最后通过公式进行风化前的成分含量的计算\textsuperscript{\cite{b1}}。
+%		
+%		\textbf{针对问题二}：对问题二进行分解，第一小问中主要是对两种玻璃的分类规律进行分析，可以采用机器学习算法，例如决策树模型进行分类。第二小问中需要进行亚类划分，可以采用聚类算法进行亚分类。在建立机器学习模型的过程中进行灵敏度的检测\textsuperscript{\cite{b2}}。
+%		
+%		\textbf{针对问题三}：问题三是对于尚未进行分类的玻璃进行分类，并进行敏感性分析。分别建立XGboost模型、lightGBM模型、随机森林模型、逻辑回归模型对玻璃样本进行建模。
+%		
+%		\textbf{针对问题四}：问题四相比于问题一中分解后的第二小问来说，只是减少了有无风化这个条件，可以通过独立样本MannWhitney U检验以及相关性分析来比较不同类别之间化学成分关联关系的差异性。
+%
+%
+%		\keywords{玻璃制品\quad  相关性分析\quad   K-means聚类\quad  敏感度}
+%	\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%五一建模终稿请注释该部分%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\includepdf[pages={1-2}]{document/header.pdf}
+\setcounter{page}{1}
+	
+
+\input{document/1-Question Restatement}%1、问题重述
+\input{document/2-Question Analysis}%2、问题分析
+\input{document/3-Model Hypothesis}%3、模型假设
+\input{document/4-Symbols}%4、符号说明
+\input{document/5-Model Establishment and Solution}%5、模型建立与求解
+\input{document/6-Model Verification}%6、模型检验
+\input{document/7-Model Promotion}%7、模型推广
+\clearpage
+\input{document/8-References}%8、参考文献
+\clearpage
+\input{document/9-Appendix}%9、附录
+	
+\end{document} 
